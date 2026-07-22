@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RodentRich: A Benchmark for Rodent Tracking in Enriched Environments</title>
+    <meta name="description" content="Project page for RodentRich: A Benchmark for Rodent Tracking in Enriched Environments." />
+
+    <!-- Optional fonts + icons -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Noto+Sans:400,500,700|Castoro:400,400i"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Tailwind CDN (no build step) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Noto Sans", "ui-sans-serif", "system-ui", "Segoe UI", "Roboto", "Arial"],
+              display: ["Google Sans", "Noto Sans", "ui-sans-serif", "system-ui"],
+              serif: ["Castoro", "ui-serif", "Georgia"]
+            },
+            boxShadow: { soft: "0 10px 30px rgba(0,0,0,0.08)" }
+          }
+        }
+      };
+    </script>
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 font-sans">
+    <header class="sticky top-0 z-10 border-b border-slate-200 bg-white/80 backdrop-blur">
+      <div class="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between">
+        <a href="#top" class="font-display font-semibold tracking-tight">RodentRich</a>
+        <nav class="hidden sm:flex gap-5 text-sm text-slate-700">
+          <a class="hover:text-slate-900" href="#abstract">Abstract</a>
+          <a class="hover:text-slate-900" href="#results">Results</a>
+          <a class="hover:text-slate-900" href="#videos">Videos</a>
+          <a class="hover:text-slate-900" href="#citation">Citation</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="mx-auto max-w-5xl px-4 py-10 pb-16">
+      <!-- HERO -->
+      <section class="rounded-2xl border border-slate-200 bg-white shadow-soft">
+        <div class="p-6 sm:p-8 space-y-6 sm:space-y-8">
+          <!-- Logo -->
+          <div class="flex justify-center">
+          <img
+            src="assets/rodent_rich_logo.png"
+            alt="RodentRich logo"
+            class="w-[320px] sm:w-[520px] md:w-[640px] h-auto max-h-40 sm:max-h-52 md:max-h-64 object-contain"
+          />
+         </div>
+
+
+          <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-center leading-tight">
+            RodentRich: A Benchmark for Rodent Tracking in Enriched Environments
+          </h1>
+
+          <div class="mt-6 flex flex-wrap justify-center gap-3">
+            <a
+              href="paper.pdf"
+              class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-800"
+            >
+              <i class="fas fa-file-pdf"></i> Paper (Coming Soon)
+            </a>
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-800"
+            >
+              <i class="fab fa-github"></i> Code (Coming Soon)
+            </a>
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-800"
+            >
+              <i class="fas fa-database"></i> Data (Coming Soon)
+            </a>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ABSTRACT -->
+      <section id="abstract" class="mt-10">
+        <h2 class="font-display text-2xl font-semibold tracking-tight border-b border-slate-200 pb-2">Abstract</h2>
+        <div class="mt-5 rounded-2xl border border-slate-200 bg-white shadow-soft p-6 sm:p-8">
+          <div class="space-y-4 text-slate-800 leading-relaxed">
+            <p>Rodents are central to neuroscience and preclinical research, where non-invasive video-based monitoring enables quantitative analysis of behavior and experimental outcomes. Yet, no comparable  multi-object tracking (MOT) benchmark exists for rodent tracking, in contrast to resources such as MOT17 for human tracking. To fill this gap, we present RodentRich, a curated dataset comprising 34 minutes of multi-rodent recordings across 30 sequences ranging from 30 seconds to 5 minutes, encompassing approximately 60,000 annotated frames. The dataset covers diverse environmental enrichments, lighting conditions, and challenging scenarios, including prolonged occlusions, close-proximity interactions, and complex social dynamics. We further benchmark state-of-the-art trackers on RodentRich, establishing extensive baselines for reproducibility. RodentRich thus provides a realistic benchmark designed to drive advances in computer vision for multi-object tracking and to facilitate automated behavioral analysis in animal research, ultimately supporting both biomedical advancement and animal welfare.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS -->
+      <section id="results" class="mt-10">
+        <h2 class="font-display text-2xl font-semibold tracking-tight border-b border-slate-200 pb-2">
+          Results
+        </h2>
+
+        <div class="mt-6 overflow-x-auto">
+          <table class="min-w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-slate-300">
+                <th class="px-3 py-2 text-left font-semibold" rowspan="2">Detector</th>
+                <th class="px-3 py-2 text-left font-semibold" rowspan="2">Tracker</th>
+                <th class="px-3 py-2 text-center font-semibold" colspan="5">Metrics</th>
+              </tr>
+              <tr class="border-b border-slate-200">
+                <th class="px-3 py-2 text-center">HOTA ↑</th>
+                <th class="px-3 py-2 text-center">DetA ↑</th>
+                <th class="px-3 py-2 text-center">AssA ↑</th>
+                <th class="px-3 py-2 text-center">IDF1 ↑</th>
+                <th class="px-3 py-2 text-center">MOTA ↑</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <!-- RT-DETR block -->
+              <tr class="border-b border-slate-100">
+                <td class="px-3 py-2 font-medium" rowspan="6">RT-DETR</td>
+                <td class="px-3 py-2">IoUTracker</td>
+                <td class="px-3 py-2 text-center"><strong>50.2</strong></td>
+                <td class="px-3 py-2 text-center"><strong>59.7</strong></td>
+                <td class="px-3 py-2 text-center"><strong>43.1</strong></td>
+                <td class="px-3 py-2 text-center"><strong>58.1</strong></td>
+                <td class="px-3 py-2 text-center"><strong>74.3</strong></td>
+              </tr>
+
+              <tr class="border-b border-slate-100">
+                <td class="px-3 py-2">ByteTrack</td>
+                <td class="px-3 py-2 text-center">45.7</td>
+                <td class="px-3 py-2 text-center">55.7</td>
+                <td class="px-3 py-2 text-center"><u>38.2</u></td>
+                <td class="px-3 py-2 text-center"><u>56.8</u></td>
+                <td class="px-3 py-2 text-center">70.0</td>
+              </tr>
+
+              <tr class="border-b border-slate-100">
+                <td class="px-3 py-2">OC-SORT</td>
+                <td class="px-3 py-2 text-center"><u>46.3</u></td>
+                <td class="px-3 py-2 text-center">57.4</td>
+                <td class="px-3 py-2 text-center">38.1</td>
+                <td class="px-3 py-2 text-center">54.6</td>
+                <td class="px-3 py-2 text-center">73.5</td>
+              </tr>
+
+              <tr class="border-b border-slate-100">
+                <td class="px-3 py-2">BoostTrack</td>
+                <td class="px-3 py-2 text-center">44.5</td>
+                <td class="px-3 py-2 text-center">58.6</td>
+                <td class="px-3 py-2 text-center">34.6</td>
+                <td class="px-3 py-2 text-center">49.5</td>
+                <td class="px-3 py-2 text-center">73.4</td>
+              </tr>
+
+              <tr class="border-b border-slate-100">
+                <td class="px-3 py-2">BoostTrack++</td>
+                <td class="px-3 py-2 text-center">44.2</td>
+                <td class="px-3 py-2 text-center">58.7</td>
+                <td class="px-3 py-2 text-center">34.1</td>
+                <td class="px-3 py-2 text-center">49.1</td>
+                <td class="px-3 py-2 text-center">73.3</td>
+              </tr>
+
+              <tr class="border-b border-slate-200">
+                <td class="px-3 py-2">TrackTrack</td>
+                <td class="px-3 py-2 text-center">43.9</td>
+                <td class="px-3 py-2 text-center"><u>59.2</u></td>
+                <td class="px-3 py-2 text-center">33.4</td>
+                <td class="px-3 py-2 text-center">47.4</td>
+                <td class="px-3 py-2 text-center"><u>73.7</u></td>
+              </tr>
+
+              <!-- Grounding DINO block -->
+              <tr class="border-b border-slate-100">
+                <td class="px-3 py-2 font-medium" rowspan="6">Grounding DINO</td>
+                <td class="px-3 py-2">IoUTracker</td>
+                <td class="px-3 py-2 text-center"><strong>33.5</strong></td>
+                <td class="px-3 py-2 text-center"><strong>49.6</strong></td>
+                <td class="px-3 py-2 text-center"><strong>22.7</strong></td>
+                <td class="px-3 py-2 text-center"><strong>36.7</strong></td>
+                <td class="px-3 py-2 text-center"><strong>50.8</strong></td>
+              </tr>
+
+              <tr class="border-b border-slate-100">
+                <td class="px-3 py-2">ByteTrack</td>
+                <td class="px-3 py-2 text-center">28.4</td>
+                <td class="px-3 py-2 text-center"><u>46.7</u></td>
+                <td class="px-3 py-2 text-center">17.4</td>
+                <td class="px-3 py-2 text-center">28.8</td>
+                <td class="px-3 py-2 text-center"><u>50.2</u></td>
+              </tr>
+
+              <tr class="border-b border-slate-100">
+                <td class="px-3 py-2">OC-SORT</td>
+                <td class="px-3 py-2 text-center"><u>31.0</u></td>
+                <td class="px-3 py-2 text-center">45.3</td>
+                <td class="px-3 py-2 text-center"><u>21.3</u></td>
+                <td class="px-3 py-2 text-center"><u>34.1</u></td>
+                <td class="px-3 py-2 text-center">47.9</td>
+              </tr>
+
+              <tr class="border-b border-slate-100">
+                <td class="px-3 py-2">BoostTrack</td>
+                <td class="px-3 py-2 text-center">28.1</td>
+                <td class="px-3 py-2 text-center">40.1</td>
+                <td class="px-3 py-2 text-center">19.9</td>
+                <td class="px-3 py-2 text-center">25.8</td>
+                <td class="px-3 py-2 text-center">12.7</td>
+              </tr>
+
+              <tr class="border-b border-slate-100">
+                <td class="px-3 py-2">BoostTrack++</td>
+                <td class="px-3 py-2 text-center">28.5</td>
+                <td class="px-3 py-2 text-center">40.6</td>
+                <td class="px-3 py-2 text-center">20.2</td>
+                <td class="px-3 py-2 text-center">26.6</td>
+                <td class="px-3 py-2 text-center">17.7</td>
+              </tr>
+
+              <tr class="border-b border-slate-300">
+                <td class="px-3 py-2">TrackTrack</td>
+                <td class="px-3 py-2 text-center">26.7</td>
+                <td class="px-3 py-2 text-center">44.8</td>
+                <td class="px-3 py-2 text-center">16.1</td>
+                <td class="px-3 py-2 text-center">26.4</td>
+                <td class="px-3 py-2 text-center">45.7</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+
+      <!-- LOCAL MP4 VIDEOS (4–5) -->
+      <section id="videos" class="mt-10">
+        <h2 class="font-display text-2xl font-semibold tracking-tight border-b border-slate-200 pb-2">
+          Video Demos
+        </h2>
+
+        <div class="mt-6 grid gap-6 sm:grid-cols-2">
+          <!-- Video 1 -->
+          <figure class="rounded-2xl border border-slate-200 bg-white shadow-soft overflow-hidden">
+            <video class="w-full bg-black" class="w-full bg-black"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto">
+              <source src="assets/videos/demo2.mp4" type="video/mp4" />
+            </video>
+          </figure>
+
+          <!-- Video 3 -->
+          <figure class="rounded-2xl border border-slate-200 bg-white shadow-soft overflow-hidden">
+            <video class="w-full bg-black" class="w-full bg-black"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto">
+              <source src="assets/videos/demo3.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </figure>
+
+          <!-- Video 4 -->
+          <figure class="rounded-2xl border border-slate-200 bg-white shadow-soft overflow-hidden">
+            <video class="w-full bg-black" class="w-full bg-black"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto">
+              <source src="assets/videos/demo4.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </figure>
+
+          <!-- Video 6 -->
+          <figure class="rounded-2xl border border-slate-200 bg-white shadow-soft overflow-hidden">
+            <video class="w-full bg-black" class="w-full bg-black"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto">
+              <source src="assets/videos/demo6.mp4" type="video/mp4" />
+              Your browser does not support the video tag.  
+            </video>
+          </figure>
+        
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
